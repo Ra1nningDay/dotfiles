@@ -1,0 +1,20 @@
+-- ~/.config/nvim/lua/plugins/treesitter.lua
+return {
+    {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+        event = { "BufReadPost", "BufNewFile" },
+        config = function()
+            require('nvim-treesitter.configs').setup({
+                ensure_installed = { "lua", "python", "javascript", "html", "css" }, -- ใส่ภาษาที่คุณใช้
+                highlight = {
+                    enable = true,
+                    additional_vim_regex_highlighting = false,
+                },
+                indent = {
+                    enable = true,
+                },
+            })
+        end
+    }
+}
